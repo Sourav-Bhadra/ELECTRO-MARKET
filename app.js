@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-require("dotenv").config();
+// require("dotenv").config();
 const cookieParser = require('cookie-parser');
 const routes = require('./routes/userRoutes')
 const { checkUser } = require('./middleware/authMiddleware')
@@ -37,7 +37,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 app.get('*', checkUser)
 
 app.get('/', (req, res) => {
-    res.send('hello')
+    // res.send('hello')
+    res.render("index")
 })
 
 
