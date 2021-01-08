@@ -22,13 +22,22 @@
         
         <nav>
             <ul id="MenuItems">
-            
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="#foot">Contact</a></li>
-                <li><a href="/account">Account</a></li>        
+                <%if(user){%>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="#foot">Contact</a></li>
+                    <li>Welcome, <%= user.email %></li>
+                    <li><a href="/logout" class="nav-link text-white">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="#foot">Contact</a></li>
+                    <li><a href="/account">Account</a></li>        
+                <%}%>
             
             </ul>
         </nav>
@@ -250,14 +259,14 @@
           headers: {'Content-Type': 'application/json'}
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         if (data.errors) {
           emailError.textContent = data.errors.email;
           passwordError.textContent = data.errors.password;
         }
-        if (data.user) {
-            console.log(data.user);
-          location.assign('/');
+        if (data) {
+            // console.log(data.user);
+            location.assign("/")
         }
   
       }
@@ -286,14 +295,15 @@
           headers: {'Content-Type': 'application/json'}
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         if (data.errors) {
           emailErrorTwo.textContent = data.errors.email;
           passwordErrorTwo.textContent = data.errors.password;
         }
-        if (data.user) {
-            console.log(data.user)
-          location.assign('/');
+        // console.log(data.user)
+        if (data) {
+            // console.log(data.user)
+            location.assign("/")
         }
   
       }

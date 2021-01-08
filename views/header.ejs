@@ -41,13 +41,22 @@
         
         <nav>
             <ul id="MenuItems">
-            
-                <li><a href="/" class="nav-link text-white">Home</a></li>
-                <li><a href="/#pro" class="nav-link text-white">Products</a></li>
-                <li><a href="/#proj" class="nav-link text-white">Projects</a></li>
-                <li><a href="/about" class="nav-link text-white">About</a></li>
-                <li><a href="#foot" class="nav-link text-white">Contact</a></li>
-                <li><a href="/account" class="nav-link text-white">Account</a></li>        
+                <% if(user){ %>
+                    <li><a href="/" class="nav-link text-white">Home</a></li>
+                    <li><a href="/#pro" class="nav-link text-white">Products</a></li>
+                    <li><a href="/#proj" class="nav-link text-white">Projects</a></li>
+                    <li><a href="/about" class="nav-link text-white">About</a></li>
+                    <li><a href="#foot" class="nav-link text-white">Contact</a></li>
+                    <li class="nav-link text-white">Welcome, <%= user.email %></li>
+                    <li><a href="/logout" class="nav-link text-white">Logout</a></li>
+                <%} else { %>
+                    <li><a href="/" class="nav-link text-white">Home</a></li>
+                    <li><a href="/#pro" class="nav-link text-white">Products</a></li>
+                    <li><a href="/#proj" class="nav-link text-white">Projects</a></li>
+                    <li><a href="/about" class="nav-link text-white">About</a></li>
+                    <li><a href="#foot" class="nav-link text-white">Contact</a></li>
+                    <li><a href="/account" class="nav-link text-white">Account</a></li>  
+                <% }%>      
             
             </ul>
         </nav>

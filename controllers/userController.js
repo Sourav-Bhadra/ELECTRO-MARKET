@@ -33,7 +33,7 @@ const handleError =(err)=>{
 
 module.exports.signup_post = async (req,res)=> {
     const {email,password} = req.body;
-    console.log(req.body)
+    // console.log(req.body)
     try{
         const user = await User.create({email,password})
         const token = create_token(user._id)
@@ -53,7 +53,7 @@ module.exports.login_post = async (req,res)=> {
         res.cookie('jwt', token,{httpOnly:true, maxAge: maxAge*1000})
         res.status(201).json({userID: user._id})
     }catch(err){
-        console.log(err.message)
+        // console.log(err.message)
         const errors = handleError(err)
         res.status(400).json({ errors });
     }
@@ -75,4 +75,7 @@ module.exports.product = (req, res) => {
 }
 module.exports.project = (req, res) => {
     res.render("projects")
+}
+module.exports.cart = (req, res) => {
+    res.render("cart")
 }

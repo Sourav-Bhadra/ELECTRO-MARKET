@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const uController = require('../views/userController')
+const uController = require('../controllers/userController')
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 
 const router = Router()
@@ -11,5 +11,6 @@ router.get('/about', uController.about);
 router.get('/account', uController.account);
 router.get('/products',requireAuth, uController.product);
 router.get('/projects',requireAuth, uController.project);
+router.get('/cart',requireAuth, uController.cart);
 
 module.exports = router;
