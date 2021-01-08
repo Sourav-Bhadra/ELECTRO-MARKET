@@ -67,7 +67,9 @@
                             </div>
                             <form id="Loginform">
                                 <input type="text" placeholder="email" name="email">
+                                <div class="email1 error"></div>
                                 <input type="text" placeholder="Password" name="password">
+                                <div class="password1 error"></div>
                                 <button type="submit" class="btn">Login</button>
                                 <a href="">Forgot Password</a>
                             
@@ -77,8 +79,10 @@
                             
                             <form id="Regform">
                                 <!-- <input type="text" placeholder="Username"> -->
-                                <input type="Email" placeholder="Email" name="email">
+                                <input type="text" placeholder="Email" name="email">
+                                <div class="email2 error"></div>
                                 <input type="text" placeholder="Password" name="password">
+                                <div class="password2 error"></div>
                                 <button type="submit" class="btn">Register</button>
                             
                             
@@ -214,14 +218,91 @@
                 loginform.style.transform = "translateX(300px)"
                  Indicator.style.transform = "translateX(0px)"
             }
-            
-            
-            
-            
-            
-            
         </script>
-      
+
+<script>
+    const form1 = document.querySelector("#Loginform");
+    const form2 = document.querySelector("#Regform");
+    // console.log(form1)
+    // console.log(form2)
+    const emailError = document.querySelector('.email1.error');
+    const emailErrorTwo = document.querySelector('.email2.error');
+    const passwordError = document.querySelector('.password1.error');
+    const passwordErrorTwo = document.querySelector('.password2.error');
+  
+    form1.addEventListener('submit', async (e) => {
+      e.preventDefault();
+    //   console.log(e);
+      // reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';
+  
+      // get values
+      const email = form1.email.value;
+      console.log(email)
+      const password = form1.password.value;
+      console.log(password)
+  
+      try {
+        const res = await fetch('/login', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        if (data.user) {
+            console.log(data.user);
+          location.assign('/');
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+  
+    });
+
+
+    form2.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log(e);
+      // reset errors
+      emailErrorTwo.textContent = '';
+      passwordErrorTwo.textContent = '';
+  
+      // get values
+      const email = form2.email.value;
+      const password = form2.password.value;
+  
+      try {
+        const res = await fetch('/signup', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          emailErrorTwo.textContent = data.errors.email;
+          passwordErrorTwo.textContent = data.errors.password;
+        }
+        if (data.user) {
+            console.log(data.user)
+          location.assign('/');
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+  
+    });
+  </script>
         
         
         
