@@ -4,63 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>ALL PRODUCTS-ELECTRO MARKET</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>ELECTRO MARKET</title>
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
-    
-    
-    
-    
 </head>
     <body>
-    
-        
-        
-   <div class="container">
-       
-    <div class="navbar">
-                         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-
-        
-        <div class="logo">
-            <a href="/"> <img src="image/logo62.png" width="260px"></a>
-        </div>  
-        
-        <nav>
-            <ul id="MenuItems">
-                <% if(user){ %>
-                    <li><a href="/" class="nav-link text-white">Home</a></li>
-                    <li><a href="/#pro" class="nav-link text-white">Products</a></li>
-                    <li><a href="/#proj" class="nav-link text-white">Projects</a></li>
-                    <li><a href="/about" class="nav-link text-white">About</a></li>
-                    <li><a href="#foot" class="nav-link text-white">Contact</a></li>
-                    <li class="nav-link text-white">Welcome, <%= user.email %></li>
-                    <li><a href="/logout" class="nav-link text-white">Logout</a></li>
-                <%} else { %>
-                    <li><a href="/" class="nav-link text-white">Home</a></li>
-                    <li><a href="/#pro" class="nav-link text-white">Products</a></li>
-                    <li><a href="/#proj" class="nav-link text-white">Projects</a></li>
-                    <li><a href="/about" class="nav-link text-white">About</a></li>
-                    <li><a href="#foot" class="nav-link text-white">Contact</a></li>
-                    <li><a href="/account" class="nav-link text-white">Account</a></li>  
-                <% }%>      
-            
-            </ul>
-        </nav>
-        <img src="image/cart.png" width="30px" height="30px">
-         <img src="image/menu.png" class="menu-icon" onclick="menutoggle()">
-       </div>
+    <div class="header">   
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="/"><img src="/image/logo.png" width="260px"></a>
+                </div>  
+                <nav>
+                    <ul id="MenuItems">
+                    <% if(user){ %>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>       
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#foot">Contact</a></li>
+                        <li>Welcome, <%= user.email %></li>
+                        <li><a href="/logout" class="nav-link text-white">Logout</a></li>
+                    <%} else { %>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>       
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#foot">Contact</a></li>
+                        <li><a href="/account">Account</a></li>        
+                    <% }%> 
+                    </ul>
+                </nav>
+                <a href="/cart"><img src="/image/cart.png" width="30px" height="30px"></a>
+                <img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+        </div>
     </div>

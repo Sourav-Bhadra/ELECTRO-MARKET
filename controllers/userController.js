@@ -10,7 +10,7 @@ const create_token = (id) => {
 }
 
 const handleError =(err)=>{
-    console.log(err.code)
+    // console.log(err.code)
     let errors = { email: '', password: '' };
     if(err.message === 'Invalid password'){
         errors.password = 'Invalid password'
@@ -24,7 +24,7 @@ const handleError =(err)=>{
     }
     if (err.message.includes('user validation failed')) {
         Object.values(err.errors).forEach(({ properties }) => {
-          console.log(properties);
+        //   console.log(properties);
           errors[properties.path] = properties.message;
         });
       }
@@ -78,4 +78,19 @@ module.exports.project = (req, res) => {
 }
 module.exports.cart = (req, res) => {
     res.render("cart")
+}
+module.exports.detail = (req, res) => {
+    res.render("products-detail")
+}
+module.exports.detail1 = (req, res) => {
+    res.render("products-detail-1")
+}
+module.exports.detail2 = (req, res) => {
+    res.render("products-detail-2")
+}
+module.exports.detail3 = (req, res) => {
+    res.render("products-detail-3")
+}
+module.exports.detail4 = (req, res) => {
+    res.render("products-detail-4")
 }
