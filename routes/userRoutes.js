@@ -17,5 +17,7 @@ router.get('/products-detail-1',requireAuth, uController.detail1);
 router.get('/products-detail-2',requireAuth, uController.detail2);
 router.get('/products-detail-3',requireAuth, uController.detail3);
 router.get('/products-detail-4',requireAuth, uController.detail4);
+router.get('/project1',requireAuth, uController.projectone);
+router.get('/project2',requireAuth, uController.projecttwo);
 
 module.exports = router;

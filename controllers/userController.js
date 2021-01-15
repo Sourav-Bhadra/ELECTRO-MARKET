@@ -94,3 +94,9 @@ module.exports.detail3 = (req, res) => {
 module.exports.detail4 = (req, res) => {
     res.render("products-detail-4")
 }
+module.exports.projectone = (req, res) => {
+    res.render("project1")
+}
+module.exports.projecttwo = (req, res) => {
+    res.render("project2")
+}

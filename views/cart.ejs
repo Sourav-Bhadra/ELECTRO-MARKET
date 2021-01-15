@@ -16,7 +16,7 @@
                                 <img src="image/c1.jpg">
                                 <div>
                                     <p>Raspberry Pi</p>
-                                    <small>Price : $50.00</small>
+                                    <small>Price : Rs 700.00</small>
                                     <br>
                                     <a href="">Remove</a>
                                 
@@ -27,7 +27,7 @@
                         
                         </td>
                         <td><input type="number" value="1"></td>
-                        <td>$50.00</td>
+                        <td>Rs 700.00</td>
                     
                     
                     
@@ -40,7 +40,7 @@
                                 <img src="image/c3.jpeg">
                                 <div>
                                     <p>Node MCU</p>
-                                    <small>Price : $10.00</small>
+                                    <small>Price : Rs 250.00</small>
                                     <br>
                                     <a href="">Remove</a>
                                 
@@ -51,7 +51,7 @@
                         
                         </td>
                         <td><input type="number" value="1"></td>
-                        <td>$50.00</td>
+                        <td>Rs 250.00</td>
                     
                     
                     
@@ -70,7 +70,7 @@
                                 <img src="image/c8.jpg">
                                 <div>
                                     <p>170 pts Mini Breadboard SYB-170 White</p>
-                                    <small>Price : $30.00</small>
+                                    <small>Price : Rs 100.00</small>
                                     <br>
                                     <a href="">Remove</a>
                                 
@@ -81,7 +81,7 @@
                         
                         </td>
                         <td><input type="number" value="1"></td>
-                        <td>$50.00</td>
+                        <td>Rs 100.00</td>
                     
                     
                     
@@ -106,7 +106,7 @@
                 <table>
                     <tr>
                         <td>Sub-Total</td>
-                        <td>$200.00</td>
+                        <td>Rs 1050.00</td>
                     
                     
                     </tr>
@@ -114,7 +114,7 @@
                     
                     <tr>
                         <td>Tax</td>
-                        <td>$50.00</td>
+                        <td>Rs 50.00</td>
                     
                     
                     </tr>
@@ -123,7 +123,7 @@
                     
                     <tr>
                         <td>Sub-Total</td>
-                        <td>$250.00</td>
+                        <td>Rs 1100.00</td>
                     
                     
                     </tr>
@@ -132,10 +132,31 @@
                 </table>
                 </div>   
                 
+                <br>
+                <br>
                 
                 
-                
-                
+                <form class="" action="/paynow" method="post">
+                    <div class="form-group">
+                      <label for="">Name: </label>
+                      <input class="form-control" type="text" name="name" value="" style="width: 60%; margin-left: 25px">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Email: </label>
+                      <input class="form-control" type="text" name="email" value="" style="width: 60%; margin-left: 30px">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Phone: </label>
+                      <input class="form-control" type="text" name="phone" value="" style="width: 60%; margin-left: 24px">
+                    </div>
+                      <div class="form-group">
+                      <label for="">Amount: </label>
+                      <input class="form-control" type="text" name="amount" value="1100" style="width: 60%; margin-left: 10px" readonly>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn form-control btn-primary" style="width: 15%;">Pay Now</button>
+                    </div>
+                  </form>
                 
                 
                 
