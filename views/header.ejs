@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ELECTRO MARKET</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <body>
+    <div class="header">   
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="/"><img src="/image/logo.png" width="260px"></a>
+                </div>  
+                <nav>
+                    <ul id="MenuItems">
+                    <% if(user){ %>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>       
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#foot">Contact</a></li>
+                        <li>Welcome, <%= user.email %></li>
+                        <li><a href="/logout" class="nav-link text-white">Logout</a></li>
+                    <%} else { %>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>       
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#foot">Contact</a></li>
+                        <li><a href="/account">Account</a></li>        
+                    <% }%> 
+                    </ul>
+                </nav>
+                <a href="/cart"><img src="/image/cart.png" width="30px" height="30px"></a>
+                <img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+        </div>
+    </div>

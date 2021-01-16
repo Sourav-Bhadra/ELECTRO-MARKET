@@ -1,0 +1,273 @@
+<%- include('./header') %>
+        
+        
+     
+       <!--------------account-page----------------------->  
+        
+        <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    
+                    
+                    <div class="col-2">
+                        <img src="image/im1.jpg" width="100%">
+                    
+                    </div>
+                    
+                    
+                    <div class="col-2">
+                        <div class="form-container">
+                            <div class="form-btn">
+                                <span onclick="login()">Login</span>
+                                <span onclick="register()">Register</span>
+                                <hr id="Indicator">
+                            </div>
+                            <form id="Loginform">
+                                <input type="text" placeholder="email" name="email" style="margin-left: 25px">
+                                <div class="email1 error"></div>
+                                <input type="text" placeholder="Password" name="password" style="margin-left: 25px">
+                                <div class="password1 error"></div>
+                                <button type="submit" class="btn" style="margin-left: 25px">Login</button>
+                                <a href="">Forgot Password</a>
+                            
+                            </form>
+                            
+                            
+                            
+                            <form id="Regform">
+                                <!-- <input type="text" placeholder="Username"> -->
+                                <input type="text" placeholder="Email" name="email" style="margin-left: 25px">
+                                <div class="email2 error"></div>
+                                <input type="text" placeholder="Password" name="password" style="margin-left: 25px">
+                                <div class="password2 error"></div>
+                                <button type="submit" class="btn" style="margin-left: 25px">Register</button>
+                            
+                            
+                            </form>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                </div>
+            
+            </div>
+        
+        
+        
+        </div>
+        
+         
+        
+        
+        
+      
+ <!--------------footer----------------------->
+        
+        
+        
+         <div class="footer">
+             <section id="foot">
+            <div class="smallcontainer">
+            <div class="row">
+                <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                    <p>Download APP for Android or Ios mobile Phone</p>
+                    <div class="app-logo">
+                    <img src="image/app-store.png">
+                        <img src="image/play-store.png">
+                    </div>
+                </div>
+                
+                 <div class="footer-col-2">
+                <img src="image/logo1.png">
+                    <p>Give Your Thought A New Limits! </p>
+                </div>
+                     
+               
+                   
+                <div class="footer-col-3">
+                <h3>Usefull links</h3>
+                   <ul>
+                    <li>Cuppons</li>
+                     <li>Blog post</li>
+                        <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                
+                
+  
+                
+                 <div class="footer-col-4">
+                <h3>Follow us </h3>
+                   <ul>
+                    <li>Facebook</li>
+                     <li>Twitter</li>
+                        <li>Instagram</li>
+                       <li>Youtube</li>
+                    </ul>
+                </div>
+                
+                
+             
+                
+                <hr>
+                <p class="copyright">&copy; Copyright 2020 - ElectroNovas</p>
+             </div>
+        </div>
+             </section>
+        
+        </div>
+        
+        
+        
+        <!--- js for toggle menu----->
+        
+        
+        <script>
+            var MenuItems =document.getElementById("MenuItems");
+            MenuItems.style.maxHeight="0px";
+            function menutoggle(){
+                if(MenuItems.style.maxHeight=="0px")
+                    {
+                        MenuItems.style.maxHeight="200px";
+                    }
+                else
+                {
+                   MenuItems.style.maxHeight="0px" 
+                }
+            }
+        
+        
+        </script>
+        
+        
+        
+        <!--- js for toggle form----->
+        
+        
+        <script>
+            var loginform=document.getElementById("Loginform");
+            var regform=document.getElementById("Regform");
+            var Indicator=document.getElementById("Indicator");
+            
+            
+            function register(){
+                regform.style.transform = "translateX(0px)"
+                loginform.style.transform = "translateX(0px)" 
+                Indicator.style.transform = "translateX(100px)"
+            }
+            
+             function login(){
+                regform.style.transform = "translateX(300px)"
+                loginform.style.transform = "translateX(300px)"
+                 Indicator.style.transform = "translateX(0px)"
+            }
+        </script>
+
+<script>
+    const form1 = document.querySelector("#Loginform");
+    const form2 = document.querySelector("#Regform");
+    // console.log(form1)
+    // console.log(form2)
+    const emailError = document.querySelector('.email1.error');
+    const emailErrorTwo = document.querySelector('.email2.error');
+    const passwordError = document.querySelector('.password1.error');
+    const passwordErrorTwo = document.querySelector('.password2.error');
+  
+    form1.addEventListener('submit', async (e) => {
+      e.preventDefault();
+    //   console.log(e);
+      // reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';
+  
+      // get values
+      const email = form1.email.value;
+      console.log(email)
+      const password = form1.password.value;
+      console.log(password)
+  
+      try {
+        const res = await fetch('/login', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        // console.log(data);
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        if (data) {
+            // console.log(data.user);
+            location.assign("/")
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+  
+    });
+
+
+    form2.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log(e);
+      // reset errors
+      emailErrorTwo.textContent = '';
+      passwordErrorTwo.textContent = '';
+  
+      // get values
+      const email = form2.email.value;
+      const password = form2.password.value;
+  
+      try {
+        const res = await fetch('/signup', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        // console.log(data);
+        if (data.errors) {
+          emailErrorTwo.textContent = data.errors.email;
+          passwordErrorTwo.textContent = data.errors.password;
+        }
+        // console.log(data.user)
+        if (data) {
+            // console.log(data.user)
+            location.assign("/")
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+  
+    });
+  </script>
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>

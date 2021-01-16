@@ -1,0 +1,29 @@
+{
+  "name": "electro-market",
+  "version": "1.0.0",
+  "description": "Electronics Online Supermarket",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leoravoe/ELECTRO-MARKET.git"
+  },
+  "author": "Preetam Sarkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leoravoe/ELECTRO-MARKET/issues"
+  },
+  "homepage": "https://github.com/Leoravoe/ELECTRO-MARKET#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.9",
+    "validator": "^13.5.2"
+  }
+}
