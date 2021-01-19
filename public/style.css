@@ -305,7 +305,7 @@ ul {
 @media only screen and (max-width: 800px) {
   nav ul {
     position: absolute;
-    margin-top: 25px;
+    margin-top: 32px;
     max-height: 238px;
     top: 70px;
     left: 0;
@@ -326,6 +326,9 @@ ul {
   .menu-icon {
     display: block;
     cursor: pointer;
+  }
+  .form-group #pay{
+    width: 100%;
   }
 }
 
@@ -480,6 +483,9 @@ td img {
 
 td:last-child {
   text-align: right;
+}
+form #pay{
+  width: 15%;
 }
 
 th:last-child {
