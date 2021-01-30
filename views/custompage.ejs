@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <span class="big-circle"></span>
+        <img src="" class="square" alt="" />
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">Let us know about your innovative thinking</h3>
+                <p class="text">
+                    <span style="text-transform: uppercase;"><b>Great news!</b></span> Now you can order your custom made project through our website.. Provide all the details and we'll get it done ASAP
+                </p>
+
+                <div class="info">
+                    <div class="information">
+                        <img src="img/location.png" class="icon" alt="" />
+                        <p>Kolkata,India</p>
+                    </div>
+                    <div class="information">
+                        <img src="img/email.png" class="icon" alt="" />
+                        <p>Electromarket@.com</p>
+                    </div>
+                    <div class="information">
+                        <img src="img/phone.png" class="icon" alt="" />
+                        <p>123-456-789</p>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <p>Connect with us :</p>
+                    <div class="social-icons">
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+
+                <form autocomplete="off" id="proj">
+                    <h3 class="title">Contact us</h3>
+                    <div class="input-container">
+                        <input type="text" name="name" class="input" />
+                        <label for="">Name</label>
+                        <span>Name</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" name="email" class="input" />
+                        <label for="">Email</label>
+                        <span>Email</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="tel" name="phone" class="input" />
+                        <label for="">Phone</label>
+                        <span>Phone</span>
+                    </div>
+                    <div class="input-container textarea">
+                        <textarea name="message" class="input"></textarea>
+                        <label for="">Description</label>
+                        <span>Message</span>
+                    </div>
+                    <input type="submit" value="Send" class="btn" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll(".input");
+
+        function focusFunc() {
+        let parent = this.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function blurFunc() {
+            let parent = this.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+        inputs.forEach((input) => {
+            input.addEventListener("focus", focusFunc);
+            input.addEventListener("blur", blurFunc);
+        });
+    </script>
+    <script>
+        const form1 = document.querySelector("#proj");
+        form1.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = form1.name.value;
+            const email = form1.email.value;
+            const phone = form1.phone.value;
+            const message = form1.message.value;
+            try{
+                const res = await fetch('/customprojectreq', { 
+                    method: 'POST', 
+                    body: JSON.stringify({  name, email, phone, message}),
+                    headers: {'Content-Type': 'application/json'}
+                });
+                const data = await res.json();
+                if (data) {
+                    // console.log(data.user);
+                    alert("Response submitted successfully")
+                    location.assign("/")
+                }
+            }
+                catch (err) {
+                    console.log(err);
+            }
+        })
+    </script>
+</body>
+
+</html>
