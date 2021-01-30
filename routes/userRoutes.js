@@ -20,6 +20,6 @@ router.get('/products-detail-4',requireAuth, uController.detail4);
 router.get('/project1',requireAuth, uController.projectone);
 router.get('/project2',requireAuth, uController.projecttwo);
 router.get('/customproject',requireAuth, uController.customproject);
-router.post('/customproject',requireAuth, uController.customprojectreq);
+router.post('/customprojectreq',requireAuth, uController.customprojectreq);
 
 module.exports = router;

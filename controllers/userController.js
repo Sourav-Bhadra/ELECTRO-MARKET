@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user')
+const Customproject = require('../models/customproject')
 
 const maxAge = 3 * 24 * 60 * 60;
 
@@ -103,6 +104,12 @@ module.exports.projecttwo = (req, res) => {
 module.exports.customproject = (req, res) => {
     res.render("custompage")
 }
-module.exports.customprojectreq = (req, res) => {
+module.exports.customprojectreq = async (req, res) => {
     // res.render("custompage")
+    try {
+        const user = await Customproject.create(req.body)
+        res.status(200).json(user)
+    } catch (error) {
+        console.error(error)
+    }
 }
