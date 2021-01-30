@@ -100,3 +100,9 @@ module.exports.projectone = (req, res) => {
 module.exports.projecttwo = (req, res) => {
     res.render("project2")
 }
+module.exports.customproject = (req, res) => {
+    res.render("custompage")
+}
+module.exports.customprojectreq = (req, res) => {
+    // res.render("custompage")
+}
