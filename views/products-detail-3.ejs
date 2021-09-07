@@ -65,7 +65,7 @@
                     </select>
                     
                     <input type="number" value="1">
-                    <a href="" class="btn">Add To Cart</a>
+                    <a href="" class="btn" id="btn">Add To Cart</a>
                     
                     
                     <h3>Product Details  <i class="fa fa-indent"></i> </h3>
@@ -336,7 +336,12 @@
         
         </script>
         
-        
+        <script>
+            document.querySelector("#btn").addEventListener("click", async (e)=>{
+                e.preventDefault();
+                alert("Item added to cart")
+            })
+        </script>
         
         
         
